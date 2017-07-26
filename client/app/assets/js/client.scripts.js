@@ -1,7 +1,7 @@
 ;(function(window, document) {
 (function() {
     "use strict";
-    angular.module('drugAnalyticsApp', ['ui.select', 'ngSanitize', 'run', 'router', 'commonUtilService', 'login']);
+    angular.module('drugAnalyticsApp', ['ngSanitize', 'run', 'router', 'commonUtilService', 'login']);
 })();
 (function() {
     'use strict';
@@ -40,7 +40,7 @@
     angular.module('commonUtilService', [])
         .service('commonUtilService', [function() {
             return {
-                apiUrl: "https://api.themoviedb.org/3/search/movie?api_key=49907b6cffad87bf22d3f0d5127c30e2",
+                apiUrl: "",
             };
         }]);
 })();
@@ -62,39 +62,4 @@
         }
     }]);
 })();
-(function() {
-    'use strict';
-    angular.module('search', []).directive("search", ['searchMovies', 'moviesFactory', function(searchMovies, moviesFactory) {
-        return {
-            replace: true,
-            restrict: 'AE',
-            templateUrl: 'components/search/search.html',
-            link: function(scope, element) {
-                try {
-                    var language = "en-US";
-                    scope.movieName = "";
-                    scope.movies = [];
-                    scope.recentSearchMovies = moviesFactory.getRecentSearchMovie();
-                    scope.getMovies = function(movieName) {
-                        if (movieName.length > 2) {
-                            var promise = searchMovies.getMovies(movieName, language);
-                            promise.then(function(res) {
-                                if (res.hasOwnProperty('data')) {
-                                    moviesFactory.setMoviesList(res.data.results);
-                                    scope.movies = moviesFactory.getMovies();
-                                }
-                            }, function(error) {
-                                console.log(error);
-                            });
-                        }
-                    }
-
-                } catch (e) {
-                    console.warn("Error ", e.message);
-                }
-            }
-        }
-    }]);
-})();
-
 })(window, document);

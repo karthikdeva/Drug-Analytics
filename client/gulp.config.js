@@ -9,8 +9,7 @@ var config = {
     vendorCss: {
         dist: path.app + "/assets/css/",
         src: [
-            path.vendorFilePath + "angular-ui-select/dist/select.min.css",
-            path.vendorFilePath + "ui-select/dist/select.min.css"
+           
         ]
     },
     vendorJs: {
@@ -18,7 +17,7 @@ var config = {
         src: [
             path.vendorFilePath + "angular/angular.min.js",
             path.vendorFilePath + "angular-sanitize/angular-sanitize.js",
-            path.vendorFilePath + "angular-ui-router/release/angular-ui-router.min.js",
+            path.vendorFilePath + "@uirouter/angularjs/release/angular-ui-router.min.js",
             path.vendorFilePath + "jquery/dist/jquery.min.js",
             path.vendorFilePath + "ui-select/dist/select.js"
         ]

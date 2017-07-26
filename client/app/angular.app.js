@@ -1,4 +1,4 @@
 (function() {
     "use strict";
-    angular.module('drugAnalyticsApp', ['ui.select', 'ngSanitize', 'run', 'router', 'commonUtilService', 'login']);
+    angular.module('drugAnalyticsApp', ['ngSanitize', 'run', 'router', 'commonUtilService', 'login']);
 })();
