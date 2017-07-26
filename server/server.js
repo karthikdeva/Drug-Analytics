@@ -31,7 +31,7 @@ api.get("/register", (req, res) => {
         id: 123
     };
     generateUsers(drug);
-    res.json("test");
+    res.json("registered");
 });
 
 function generateUsers(drug) {
@@ -46,4 +46,5 @@ function generateUsers(drug) {
 
 
 app.use("/api", api);
-app.listen(1234);
+app.listen(8484);
+console.log("Server listening on 8484");

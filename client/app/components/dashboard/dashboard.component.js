@@ -1,14 +1,12 @@
 (function() {
     'use strict';
-    angular.module('login', []).directive("login", ['$stateParams', function($stateParams) {
+    angular.module('dashboard', []).directive("dashboard", ['$stateParams', function($stateParams) {
         return {
             replace: true,
             restrict: 'AE',
-            templateUrl: 'components/login/login.html',
+            template: '<h1>Dashboard </h1>',
             link: function(scope, element) {
-                try {
-
-                } catch (e) {
+                try {} catch (e) {
                     console.warn("Error ", e.message);
                 }
             }

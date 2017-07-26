@@ -1,7 +1,7 @@
 ;(function(window, document) {
 (function() {
     "use strict";
-    angular.module('drugAnalyticsApp', ['ngSanitize', 'run', 'router', 'commonUtilService', 'login']);
+    angular.module('drugAnalyticsApp', ['ngSanitize', 'run', 'router', 'commonUtilService', 'login', 'dashboard']);
 })();
 (function() {
     'use strict';
@@ -47,6 +47,21 @@
 
 (function() {
     'use strict';
+    angular.module('dashboard', []).directive("dashboard", ['$stateParams', function($stateParams) {
+        return {
+            replace: true,
+            restrict: 'AE',
+            template: '<h1>Dashboard </h1>',
+            link: function(scope, element) {
+                try {} catch (e) {
+                    console.warn("Error ", e.message);
+                }
+            }
+        }
+    }]);
+})();
+(function() {
+    'use strict';
     angular.module('login', []).directive("login", ['$stateParams', function($stateParams) {
         return {
             replace: true,
@@ -54,7 +69,7 @@
             templateUrl: 'components/login/login.html',
             link: function(scope, element) {
                 try {
-                    //     scope.movie = moviesFactory.getMovieDetailsById($stateParams.id);
+
                 } catch (e) {
                     console.warn("Error ", e.message);
                 }
