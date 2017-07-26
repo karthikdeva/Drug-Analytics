@@ -1,0 +1,31 @@
+.login-container {
+    max-width: 500px;
+    min-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include border-radius(8px);
+    @include transform(-50%, -50%);
+    @include box-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+    @include linear-gradient(to right, #10182d 0%, #1d2f5d 50%, #1f407a 70%, #07609a 100%);
+    color: #fff;
+    .login-header {
+        text-align: center;
+        padding: 15px;
+    }
+    .login-content {
+        padding: 15px;
+        @include full-width;
+        label,
+        .btn {
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+@media screen and (max-width:1024px){
+     body{
+         display:none;
+     }
+}
