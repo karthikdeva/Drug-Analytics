@@ -17,4 +17,12 @@
     "normId":11258,
     "startDate":"2016-04-12",
     "endDate":"2016-05-16"
-}]
+},
+{
+    "patientId":2,
+    "medication":"Viactiv Calcium Plus D",
+    "normId":11258,
+    "startDate":"2016-04-12",
+    "endDate":"2016-05-16"
+}
+]
