@@ -1,4 +1,24 @@
+[{
+  "name":"Aspirin",
+  "normId":1191
+},
 {
-    "name": "abc",
-    "id": 123
-}
+  "name":"Arixtra",
+  "normId":321208
+},
+{
+  "name":"Aspir-Low",
+  "normId":1191
+},
+{
+  "name":"Anacin",
+  "normId":1191
+},
+{
+  "name":"Arixtra",
+  "normId":321208
+},
+{
+  "name":"Coumadin",
+  "normId":321208
+}]
