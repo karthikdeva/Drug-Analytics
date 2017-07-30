@@ -1,0 +1,37 @@
+ @font-face {
+     font-family: 'CentraleSansBold';
+     src: url('../fonts/CentraleSans-Bold.eot');
+     src: url('../fonts/CentraleSans-Bold.eot') format('embedded-opentype'), url('../fonts/CentraleSans-Bold.woff') format('woff'), url('../fonts/CentraleSans-Bold.woff') format('woff'), url('../fonts/CentraleSans-Bold.ttf') format('truetype'), url('../fonts/CentraleSans-Bold.ttf.svg') format('svg');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'CentraleSansCnd-Bold';
+     src: url('../fonts/CentraleSansCnd-Bold.eot');
+     src: url('../fonts/CentraleSansCnd-Bold.eot') format('embedded-opentype'), url('../fonts/CentraleSansCnd-Bold.woff') format('woff'), url('../fonts/CentraleSansCnd-Bold.woff') format('woff'), url('../fonts/CentraleSansCnd-Bold.ttf') format('truetype'), url('../fonts/CentraleSansCnd-Bold.ttf.svg') format('svg');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'CentraleSansCnd-Book';
+     src: url('../fonts/CentraleSansCnd-Book.eot');
+     src: url('../fonts/CentraleSansCnd-Book.eot') format('embedded-opentype'), url('../fonts/CentraleSansCnd-Book.woff') format('woff'), url('../fonts/CentraleSansCnd-Book.woff') format('woff'), url('../fonts/CentraleSansCnd-Book.ttf') format('truetype'), url('../fonts/CentraleSansCnd-Book.ttf.svg') format('svg');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+
+
+
+$CentraleSans-Regular: 'CentraleSans', sans-serif;
+$CentraleSansBold: 'CentraleSans-Bold', sans-serif;
+$CentraleSansCndBook-Regular: 'CentraleSansCnd-Book', sans-serif;
+$CentraleSansCndBold-Regular: 'CentraleSansCnd-Bold', sans-serif;
+$CentraleSansCndLight-Regular: 'CentraleSansCnd-Light', sans-serif;
+$CentraleSans-Light: 'CentraleSans-Light', sans-serif;
+$CentraleSansRnd-Bold: 'CentraleSansRnd-Bold', sans-serif;
+$CentraleSansRnd-Book: 'CentraleSansRnd-Book', sans-serif;
+
+

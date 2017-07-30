@@ -1,0 +1,17 @@
+<section>
+    <main-header></main-header>
+    <div class="patient-lists">
+
+        <a class="row-item" ui-sref="details({pId:patient.id})" ng-repeat="i in getNumber(number) track by $index">
+            <div class=" patient-icon ">
+                <img src="assets/images/avatar-icon.png " class="img-circle " alt="patient-name " />
+            </div>
+            <div class="patient-info ">
+                <label class="lbl-text text-medium lbl-dark ">Patient Name </label>
+                <label class="lbl-text text-medium "><span class="lbl-text text-small "> Respiratory, Male, 59Yrs</span></label>
+                <label class="lbl-text text-small ">Onboarded Date - 13-04-2017, </label>
+            </div>
+        </a>
+
+    </div>
+</section>

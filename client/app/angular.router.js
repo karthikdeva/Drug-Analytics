@@ -19,6 +19,13 @@
                             template: "<dashboard></dashboard>"
                         }
                     }
+                }).state('details', {
+                    url: '/details',
+                    views: {
+                        '': {
+                            template: "<patient-details></patient-details>"
+                        }
+                    }
                 });
         }]);
 })();
