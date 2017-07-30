@@ -15,10 +15,38 @@
   "normId":1191
 },
 {
-  "name":"Arixtra",
+  "name":"Lovenox",
   "normId":321208
 },
 {
   "name":"Coumadin",
   "normId":321208
+},
+{
+  "name":"Pradaxa",
+  "normId":321208
+},
+{
+  "name":"Aggrenox",
+  "normId":1191
+},
+{
+  "name":"Ascriptin",
+  "normId":1191
+},
+,
+{
+  "name":"celecoxib",
+  "normId":140587
+},
+,
+{
+  "name":"Celebrex",
+  "normId":140587
+},
+{
+	"name":"Dolobid",
+	"normId":"202486"
+},
+{
 }]

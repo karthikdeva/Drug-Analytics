@@ -7,7 +7,8 @@
 },
 {
     "patientId":2,
-    "medication":"X1",
+    "medication":"Lovenox",
+	"normId":321208,
     "startDate":"2016-04-12",
     "endDate":"2016-05-16"
 },
@@ -29,6 +30,20 @@
     "patientId":3,
     "medication":"Viactiv Calcium Plus D",
     "normId":11258,
+    "startDate":"2016-04-12",
+    "endDate":"2016-05-16"
+},
+{
+    "patientId":3,
+    "medication":"Celebrex",
+    "normId":140587,
+    "startDate":"2016-04-12",
+    "endDate":"2016-05-16"
+},
+{
+    "patientId":4,
+    "medication":"Dolobid",
+    "normId":202486,
     "startDate":"2016-04-12",
     "endDate":"2016-05-16"
 }
