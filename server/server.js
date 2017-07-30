@@ -1,10 +1,65 @@
+
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var api = express.Router();
 
+//Getting all the adverse effects
+var adverseEffects = null;
+fs.readFile('./server/api/adverse.json', function(err, content) {
+    if (err) throw err;
+    adverseEffects = JSON.parse(content);
+});
 
+function getMedications(settings,callback){
+    var medications;
+    fs.readFile('./server/api/medication.json', function(err, content) {
+        if (err) throw err;
+        medications = JSON.parse(content).filter(function(medication){
+            if(medication.patientId == settings.patientId){
+                if(settings.startDate && settings.endDate){
+                    var medDatetime = new Date(medication.endDate).getTime();
+                    if(medDatetime >= new Date(settings.startDate).getTime() && medDateTime <=  new Date(settings.endDate).getTime()){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        });
+        callback(medications);
+    });
+}
+
+function writeMedications(data,callback){
+    var medications;
+    fs.readFile('./server/api/medication.json', function(err, content) {
+        if (err) throw err;
+        medications = JSON.parse(content);
+        medications.push(data);
+       var json = JSON.stringify(medications); //convert it back to json
+        fs.writeFile('./api/medication.json', json, 'utf8', callback);
+    });
+}
+
+function checkAdverseEffects(drugId, medications,callback){
+    var adverse;
+    var results = [];
+    fs.readFile('./server/api/adverse.json', function(err, content) {
+        if (err) throw err;
+        adverse = JSON.parse(content);
+        for(var i=0;i<medications.length;i++){
+            var ads = adverse(medications[i]);
+            if(ads.normId == drugId){
+                results.push(ads.message);
+            }
+        }
+        callback(results);
+    });
+}
 app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -34,6 +89,34 @@ api.get("/patients", (req, res) => {
     });
 });
 
+api.get("/patients/:id/medication", (req, res) => {
+    getMedications({"patientId":req.params.id},function(content){
+        res.send(content);
+    })
+    /*var medications;
+    fs.readFile('./api/medication.json', function(err, content) {
+        if (err) throw err;
+        medications = JSON.parse(content).filter(function(medication){
+            return medication.patientId == req.params.id;
+        });
+        res.send(medications)
+    });*/
+});
+
+api.post('/savemedication', function(req, res){
+    
+    res.setHeader('Content-Type', 'application/json');
+    var medications = getMedications({"patientId":req.body.id,"startDate":req.body.startDate,"endDate":req.body.endDate},function(content){
+        return content;
+    }); 
+    checkAdverseEffects(req.body.drugId,medications,function(result){
+         res.send(JSON.stringify({
+            results: result || null
+        }));
+    })
+    //debugging output for the terminal
+    console.log('you posted: First Name: ' + req.body.firstName + ', Last Name: ' + req.body.lastName);
+});
 
 api.get("/register", (req, res) => {
     var drug = {
