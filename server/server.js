@@ -25,6 +25,16 @@ api.get("/drugs", (req, res) => {
     });
 });
 
+api.get("/patients", (req, res) => {
+    var patients;
+    fs.readFile('./api/patients.json', function(err, content) {
+        if (err) throw err;
+        patients = JSON.parse(content);
+        res.send(patients)
+    });
+});
+
+
 api.get("/register", (req, res) => {
     var drug = {
         name: "abc",
