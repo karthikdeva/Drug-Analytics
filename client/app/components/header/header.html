@@ -1,23 +1,23 @@
 <header class="header navbar navbar-default navbar-static-top">
     <div class="navbar-brand">
-        <a id="home" data-automation-id="home" ui-sref="patients" ui-sref-opts="{reload: true}" target="_blank" title="{{::projectName}}">
+        <a id="home" data-automation-id="home" ui-sref="dashboard" ui-sref-opts="{reload: true}" title="{{::projectName}}">
             <img ng-src="assets/images/logo.png" alt="{{::projectName}}"></img>
             <span class="logo-caption" id="brand-caption" data-automation-id="brand-caption">{{::projectName}} <i>{{::releaseVersion}}</i></span>
         </a>
     </div>
     <div class="header-right pull-right">
-        <label class="pull-left ng-cloak ng-hide" ng-show="$state.current.name!=='patients'" ui-sref="patients" ui-sref-opts="{reload: true}">
-            <span class="ng-cloak" id="homeLink" data-automation-id="homeLink" title="{{::config.homeButtonLabel}}">{{::config.homeButtonLabel}}</span>
+        <label class="pull-left ng-cloak ng-hide" ng-show="$state.current.name!=='dashboard'" ui-sref="dashboard" ui-sref-opts="{reload: true}">
+            <span class="ng-cloak" id="homeLink" data-automation-id="homeLink" title="home">Home</span>
         </label>
         <div class="dropdown">
             <label id="user" data-automation-id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="ng-cloak" id="userName" data-automation-id="userName" title="{{::userName}}">{{::userName}}</span>
-                <span class="fa fa-caret-down icon-down"></span>
+                  <span class="fa fa-caret-down icon-down"></span>
             </label>
+
             <ul class="dropdown-menu last-child">
-                <li>
+                <li aria-haspopup="true" aria-expanded="false">
                     <a id="logout" data-automation-id="logout" ui-sref="login">Logout</a>
-                    </a>
                 </li>
             </ul>
         </div>

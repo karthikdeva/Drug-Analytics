@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('patientDetailsModule', ['patient-details']);
+    angular.module('patientDetailsModule', ['patient-details', 'allService']);
 })();

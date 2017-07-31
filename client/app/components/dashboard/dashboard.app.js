@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('dashboardModule', ['dashboardDirective']);
+    angular.module('dashboardModule', ['commonUtilService', 'dashboardDirective', 'patientListService']);
 })();

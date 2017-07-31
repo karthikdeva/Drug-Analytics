@@ -1,6 +1,4 @@
 (function() {
     'use strict';
-    angular.module('headerModule', ['header'
-
-    ]);
+    angular.module('headerModule', ['header']);
 })();

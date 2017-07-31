@@ -1,0 +1,59 @@
+<section class="add-medication col-md-12 col-sm-12">
+
+    <form class="form-horizontal container">
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="Medications">Medications:</label>
+            </div>
+            <div class="search-box col-sm-10">
+                <span class="fa fa-search icon-search"></span>
+                <ui-select ng-model="selectedDrugName" theme="bootstrap" reset-search-input="false" title="drugs" on-select="checkDrug($item, $model)">
+                    <ui-select-match placeholder="Drugs"> {{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="drug in drugs track by $index" refresh="getDrugs($select.search)" refresh-delay="0">
+                        <div class="title-section">
+                            <label ng-bind="drug.name"></label>
+                        </div>
+                    </ui-select-choices>
+                </ui-select>
+                <div class="warning" ng-if="init.warning">
+                    <i class="fa fa-warning"></i> {{init.warning}} </div>
+            </div>
+        </div>
+        <!-- <div class="form-group" ng-if="init.warning">
+            <div class="alert alert-warning">
+                <div> <strong>Warning! </strong> </div>
+                <div> <strong>Risk! </strong> </div>
+            </div>
+        </div> -->
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="Dosage">Dosage</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="ex:10mg" ng-model="init.dosage">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="Start">Start Date:</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="YYYY-DD-MM" ng-model="init.startDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <label for="End">End Date:</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="YYYY-DD-MM" ng-model="init.endDate">
+            </div>
+        </div>
+        <button class="btn btn-primary pull-right" ng-click="saveMedication()">Add</button>
+        <div class="form-group">
+            <div class="alert alert-success animated fadeInUp" ng-if="init.message">
+                {{init.message}}
+            </div>
+        </div>
+    </form>
+</section>
