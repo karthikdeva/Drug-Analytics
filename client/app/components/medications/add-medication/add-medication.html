@@ -25,12 +25,17 @@
                 <label for="Dosage">Dosage</label>
             </div>
             <div class="col-sm-10">
-
-                <seclect class="form-control">
-                    <option value="{{item}}" ng-repeat="item in init.dosage">{{item}}</option>
-                </seclect>
-                <!-- <input type="text" class="form-control" placeholder="ex:10mg" ng-model="init.dosage"> -->
+                <ui-select ng-model="selectedDosage" theme="bootstrap" reset-search-input="false" title="Dosage" on-select="checkDosage($item, $model)">
+                    <ui-select-match placeholder="Dosage"> {{$select.selected}}</ui-select-match>
+                    <ui-select-choices repeat="item in init.dosage track by $index" refresh-delay="0">
+                        <div class="title-section">
+                            <label ng-bind="item"></label>
+                        </div>
+                    </ui-select-choices>
+                </ui-select>
             </div>
+
+
         </div>
         <div class="form-group">
             <div class="col-sm-2">

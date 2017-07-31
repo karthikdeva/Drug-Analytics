@@ -22,6 +22,9 @@
                         scope.selectedDrug = item;
                         scope.checkMedications(item.normId);
                     }
+                    scope.checkDosage = function(item, model) {
+                        scope.selectedDosage = item;
+                    }
 
                     scope.checkMedications = function(normId) {
                         var promise = allService.checkMedications(normId);
