@@ -53,8 +53,8 @@
                                 scope.init.warning = "<b>'" + name + "'</b> may affect the serious drug side affects with combination of current drug <b> '" + scope.selectedDrug.name + "'</b> with following medication";
                                 scope.init.risk = "High";
                                 $("#myModal").modal("show");
-                            } else if (scope.selectedDrug.normId == 321208) {
-
+                            } else {
+                                scope.confirmSave();
                             }
                         }
                     }
@@ -75,7 +75,7 @@
                             $timeout(function() {
                                 scope.init.message = "";
                             }, 2000);
-
+                            // $(".form-control").val("");
                         }, function(error) {
                             console.log(error);
                         });
