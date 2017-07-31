@@ -118,27 +118,63 @@
 })();
 (function() {
     'use strict';
-    angular.module('headerModule', ['header']);
+    angular.module('loginModule', ['loginDirective']);
 })();
 (function() {
     'use strict';
-    angular.module('header', [])
-        .directive('mainHeader', [function() {
-            return {
-                replace: true,
-                restrict: 'AE',
-                templateUrl: 'components/header/header.html',
-                link: function(scope, element) {
-                    try {
-                        scope.userName = "Clinician 1";
-                        scope.projectName = "Drug Analysis";
-
-                    } catch (e) {
-                        console.warn("Error on Header Directive", e.message);
+    angular.module('loginDirective', []).directive("login", ['$stateParams', '$state', function($stateParams, $state) {
+        return {
+            replace: true,
+            restrict: 'AE',
+            templateUrl: 'components/login/login.html',
+            link: function(scope, element) {
+                try {
+                    scope.init = {};
+                    scope.login = function() {
+                        if (scope.init.username && scope.init.password) {
+                            $state.go("dashboard");
+                        } else {
+                            alert("User name and password are required");
+                        }
                     }
+
+                } catch (e) {
+                    console.warn("Error ", e.message);
                 }
-            };
-        }]);
+            }
+        }
+    }]);
+})();
+(function() {
+    'use strict';
+    angular.module('medications', []).directive("medications", ['$stateParams', 'allService', 'patientListService', function($stateParams, allService, patientListService) {
+        return {
+            replace: true,
+            restrict: 'AE',
+            templateUrl: 'components/medications/medications.html',
+            link: function(scope, element) {
+                try {
+
+                    var promise = allService.getMedicationBypatientId($stateParams.id)
+                    promise.then(function(res) {
+                        scope.medications = allService.getCachedMedicationsByPatientId($stateParams.id);
+                        console.log(scope.medications);
+                    }, function(error) {
+                        console.log(error);
+                    });
+
+
+                } catch (e) {
+                    console.warn("Error ", e.message);
+                }
+            }
+        }
+    }]);
+})();
+(function() {
+    'use strict';
+    angular.module('medicationsModule', ['medications']);
+
 })();
 (function() {
     "use strict";
@@ -237,66 +273,6 @@
 })();
 (function() {
     'use strict';
-    angular.module('loginModule', ['loginDirective']);
-})();
-(function() {
-    'use strict';
-    angular.module('loginDirective', []).directive("login", ['$stateParams', '$state', function($stateParams, $state) {
-        return {
-            replace: true,
-            restrict: 'AE',
-            templateUrl: 'components/login/login.html',
-            link: function(scope, element) {
-                try {
-                    scope.init = {};
-                    scope.login = function() {
-                        if (scope.init.username && scope.init.password) {
-                            $state.go("dashboard");
-                        } else {
-                            alert("User name and password are required");
-                        }
-                    }
-
-                } catch (e) {
-                    console.warn("Error ", e.message);
-                }
-            }
-        }
-    }]);
-})();
-(function() {
-    'use strict';
-    angular.module('medications', []).directive("medications", ['$stateParams', 'allService', 'patientListService', function($stateParams, allService, patientListService) {
-        return {
-            replace: true,
-            restrict: 'AE',
-            templateUrl: 'components/medications/medications.html',
-            link: function(scope, element) {
-                try {
-
-                    var promise = allService.getMedicationBypatientId($stateParams.id)
-                    promise.then(function(res) {
-                        scope.medications = allService.getCachedMedicationsByPatientId($stateParams.id);
-                        console.log(scope.medications);
-                    }, function(error) {
-                        console.log(error);
-                    });
-
-
-                } catch (e) {
-                    console.warn("Error ", e.message);
-                }
-            }
-        }
-    }]);
-})();
-(function() {
-    'use strict';
-    angular.module('medicationsModule', ['medications']);
-
-})();
-(function() {
-    'use strict';
     angular.module('addMedicationModule', ['addMedication']);
 
 })();
@@ -309,7 +285,9 @@
             templateUrl: 'components/medications/add-medication/add-medication.html',
             link: function(scope, element) {
                 try {
-                    scope.init = {};
+                    scope.init = {
+                        dosage: ["10mg", "15mg", "20mg", "25mg", "30mg"]
+                    };
 
                     scope.selectedDrug = {};
                     var promise = allService.getDrugs()
@@ -321,6 +299,9 @@
                     scope.checkDrug = function(item, model) {
                         scope.selectedDrug = item;
                         scope.checkMedications(item.normId);
+                    }
+                    scope.checkDosage = function(item, model) {
+                        scope.selectedDosage = item;
                     }
 
                     scope.checkMedications = function(normId) {
@@ -342,10 +323,13 @@
                                 drugId: scope.selectedDrug.normId
                             }
                             scope.init.warning = "";
+
                             //  var promise1 = allService.getMedicationBypatientId($stateParams.id)
                             if (scope.selectedDrug.normId == 321208) {
+
                                 scope.init.warning = "It increases chance of internal bleeding or, if patient get a cut on his finger, the blood won't clot as quickly.";
                                 scope.init.risk = "High";
+                                $("#myModal").modal("show");
                             } else {
                                 var promise = allService.saveMedication(medicaton);
 
@@ -373,5 +357,29 @@
             }
         }
     }]);
+})();
+(function() {
+    'use strict';
+    angular.module('headerModule', ['header']);
+})();
+(function() {
+    'use strict';
+    angular.module('header', [])
+        .directive('mainHeader', [function() {
+            return {
+                replace: true,
+                restrict: 'AE',
+                templateUrl: 'components/header/header.html',
+                link: function(scope, element) {
+                    try {
+                        scope.userName = "Clinician 1";
+                        scope.projectName = "Drug Analysis";
+
+                    } catch (e) {
+                        console.warn("Error on Header Directive", e.message);
+                    }
+                }
+            };
+        }]);
 })();
 })(window, document);

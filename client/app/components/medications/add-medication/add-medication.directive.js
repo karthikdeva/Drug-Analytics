@@ -7,7 +7,9 @@
             templateUrl: 'components/medications/add-medication/add-medication.html',
             link: function(scope, element) {
                 try {
-                    scope.init = {};
+                    scope.init = {
+                        dosage: ["10mg", "15mg", "20mg", "25mg", "30mg"]
+                    };
 
                     scope.selectedDrug = {};
                     var promise = allService.getDrugs()
@@ -19,6 +21,9 @@
                     scope.checkDrug = function(item, model) {
                         scope.selectedDrug = item;
                         scope.checkMedications(item.normId);
+                    }
+                    scope.checkDosage = function(item, model) {
+                        scope.selectedDosage = item;
                     }
 
                     scope.checkMedications = function(normId) {
@@ -40,10 +45,13 @@
                                 drugId: scope.selectedDrug.normId
                             }
                             scope.init.warning = "";
+
                             //  var promise1 = allService.getMedicationBypatientId($stateParams.id)
                             if (scope.selectedDrug.normId == 321208) {
+
                                 scope.init.warning = "It increases chance of internal bleeding or, if patient get a cut on his finger, the blood won't clot as quickly.";
                                 scope.init.risk = "High";
+                                $("#myModal").modal("show");
                             } else {
                                 var promise = allService.saveMedication(medicaton);
 
