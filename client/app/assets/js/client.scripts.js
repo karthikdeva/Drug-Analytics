@@ -53,6 +53,67 @@
 })();
 (function() {
     'use strict';
+    angular.module('dashboardModule', ['commonUtilService', 'dashboardDirective', 'patientListService']);
+})();
+(function() {
+    'use strict';
+    angular.module('dashboardModule', ['patientListService']).directive("dashboard", ['$stateParams', 'patientListService', function($stateParams, patientListService) {
+        return {
+            replace: true,
+            restrict: 'AE',
+            templateUrl: 'components/dashboard/dashboard.tpl.html',
+            link: function(scope, element) {
+                try {
+                    var promise = patientListService.getPatients();
+                    promise.then(function(res) {
+                        scope.patientList = res.data;
+                    }, function(error) {
+                        console.log(error);
+                    });
+                    scope.number = 7;
+                    scope.getNumber = function(num) {
+                        return new Array(num);
+                    }
+
+                } catch (e) {
+                    console.warn("Error ", e.message);
+                }
+            }
+        }
+    }]);
+})();
+(function() {
+    "use strict";
+    angular.module('patientListService', [])
+        .service('patientListService', ['$q', '$http', 'commonUtilService', function($q, $http, commonUtilService) {
+            var patients = [];
+            return {
+
+                getPatients: function() {
+                    var deferred = $q.defer();
+                    var apiUrl = commonUtilService.apiUrl + "patients";
+                    $http.get(apiUrl).then(function(data) {
+                        deferred.resolve(data);
+                        patients = data.data;
+                    }, function myError(response) {
+                        deferred.reject(response);
+                    });
+
+                    return deferred.promise;
+                },
+
+                getSelectedPatient: function(patientId) {
+                    var selectedPatient = patients.filter(function(item) {
+                        return item.id == patientId;
+                    });
+                    return selectedPatient;
+                }
+
+            };
+        }]);
+})();
+(function() {
+    'use strict';
     angular.module('headerModule', ['header']);
 })();
 (function() {
@@ -232,67 +293,6 @@
 })();
 (function() {
     'use strict';
-    angular.module('dashboardModule', ['commonUtilService', 'dashboardDirective', 'patientListService']);
-})();
-(function() {
-    'use strict';
-    angular.module('dashboardModule', ['patientListService']).directive("dashboard", ['$stateParams', 'patientListService', function($stateParams, patientListService) {
-        return {
-            replace: true,
-            restrict: 'AE',
-            templateUrl: 'components/dashboard/dashboard.tpl.html',
-            link: function(scope, element) {
-                try {
-                    var promise = patientListService.getPatients();
-                    promise.then(function(res) {
-                        scope.patientList = res.data;
-                    }, function(error) {
-                        console.log(error);
-                    });
-                    scope.number = 7;
-                    scope.getNumber = function(num) {
-                        return new Array(num);
-                    }
-
-                } catch (e) {
-                    console.warn("Error ", e.message);
-                }
-            }
-        }
-    }]);
-})();
-(function() {
-    "use strict";
-    angular.module('patientListService', [])
-        .service('patientListService', ['$q', '$http', 'commonUtilService', function($q, $http, commonUtilService) {
-            var patients = [];
-            return {
-
-                getPatients: function() {
-                    var deferred = $q.defer();
-                    var apiUrl = commonUtilService.apiUrl + "patients";
-                    $http.get(apiUrl).then(function(data) {
-                        deferred.resolve(data);
-                        patients = data.data;
-                    }, function myError(response) {
-                        deferred.reject(response);
-                    });
-
-                    return deferred.promise;
-                },
-
-                getSelectedPatient: function(patientId) {
-                    var selectedPatient = patients.filter(function(item) {
-                        return item.id == patientId;
-                    });
-                    return selectedPatient;
-                }
-
-            };
-        }]);
-})();
-(function() {
-    'use strict';
     angular.module('addMedicationModule', ['addMedication']);
 
 })();
@@ -351,8 +351,8 @@
                                 scope.init.warning = "<b>'" + name + "'</b> may affect the serious drug side affects with combination of current drug <b> '" + scope.selectedDrug.name + "'</b> with following medication";
                                 scope.init.risk = "High";
                                 $("#myModal").modal("show");
-                            } else if (scope.selectedDrug.normId == 321208) {
-
+                            } else {
+                                scope.confirmSave();
                             }
                         }
                     }
@@ -373,7 +373,7 @@
                             $timeout(function() {
                                 scope.init.message = "";
                             }, 2000);
-
+                            // $(".form-control").val("");
                         }, function(error) {
                             console.log(error);
                         });
