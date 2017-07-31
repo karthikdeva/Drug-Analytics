@@ -20,7 +20,7 @@
                         }
                     }
                 }).state('details', {
-                    url: '/details',
+                    url: '/details/:id',
                     views: {
                         '': {
                             template: "<patient-details></patient-details>"

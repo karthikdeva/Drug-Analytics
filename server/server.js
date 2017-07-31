@@ -7,14 +7,14 @@ var api = express.Router();
 
 //Getting all the adverse effects
 var adverseEffects = null;
-fs.readFile('./server/api/adverse.json', function(err, content) {
+fs.readFile('./api/adverse.json', function(err, content) {
     if (err) throw err;
     adverseEffects = JSON.parse(content);
 });
 
 function getMedications(settings,callback){
     var medications;
-    fs.readFile('./server/api/medication.json', function(err, content) {
+    fs.readFile('./api/medication.json', function(err, content) {
         if (err) throw err;
         medications = JSON.parse(content).filter(function(medication){
             if(medication.patientId == settings.patientId){
@@ -34,7 +34,7 @@ function getMedications(settings,callback){
 
 function writeMedications(data,callback){
     var medications;
-    fs.readFile('./server/api/medication.json', function(err, content) {
+    fs.readFile('./api/medication.json', function(err, content) {
         if (err) throw err;
         medications = JSON.parse(content);
         medications.push(data);
@@ -78,7 +78,7 @@ api.get('/', (req, res) => {
 
 api.get("/drugs", (req, res) => {
     var drugs;
-    fs.readFile('./drugs.json', function(err, content) {
+    fs.readFile('./api/drugs.json', function(err, content) {
         if (err) throw err;
         drugs = JSON.parse(content);
         res.send(drugs)
@@ -88,6 +88,14 @@ api.get("/drugs", (req, res) => {
 api.get("/patients", (req, res) => {
     var patients;
     fs.readFile('./api/patients.json', function(err, content) {
+        if (err) throw err;
+        patients = JSON.parse(content);
+        res.send(patients)
+    });
+});
+api.get("/adverse/:normId", (req, res) => {
+    var patients;
+    fs.readFile('./api/adverse.json', function(err, content) {
         if (err) throw err;
         patients = JSON.parse(content);
         res.send(patients)

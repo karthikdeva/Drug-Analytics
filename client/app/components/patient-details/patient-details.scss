@@ -1,0 +1,116 @@
+.patient-details-wrapper {
+    @include full-width;
+}
+
+.details-header {
+    background: #343433;
+    @include full-width;
+    position: relative;
+    padding: 10px 20px 7px 30px;
+    i {
+        font-style: normal;
+    }
+    .readMore {
+        color: #fff;
+    }
+    .back-button {
+        background: #c1c1c1;
+        float: left;
+        line-height: 100%;
+        padding: 12px 25px;
+        cursor: pointer;
+        display: none;
+        .fa {
+            font-size: 40px;
+            color: #343433;
+        }
+    }
+    .label-large {
+        color: #fff;
+        font-size: 36px;
+        font-family: $CentraleSansCndLight-Regular;
+        line-height: 43px;
+        font-weight: normal;
+        text-transform: capitalize;
+        letter-spacing: 0.1px;
+        &.label-name {
+            max-width: 80%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+    .title-row {
+        margin-bottom: 15px;
+        min-height: 48px;
+    }
+    .contact-no {
+        font-size: 28px;
+        line-height: 34px;
+        font-family: $CentraleSansCndLight-Regular;
+    }
+    .details-content {
+        .col.col-1 {
+            // min-width: 194px;
+            label {
+                display: inline-block;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        .col {
+            padding-right: 28px;
+            width: 25%;
+            label {
+                display: block;
+                color: #d8d8d7;
+                font-size: 14px;
+                font-family: $CentraleSansCndLight-Regular;
+                line-height: 19px;
+                font-weight: normal;
+                letter-spacing: 0.2px;
+            }
+            span {
+                font-size: 16px;
+                line-height: 17px;
+                font-family: $CentraleSansCndBook-Regular;
+                letter-spacing: 0.1px;
+                color: #fff;
+                display: inline-block;
+                min-width: 14px;
+                white-space: nowrap;
+            }
+            .gender {
+                margin-right: 24px;
+            }
+        }
+    }
+    .col {
+        float: left;
+        color: #fff;
+    }
+    .avatar-icon {
+        float: left;
+        margin: 22px 25px 0 0;
+        width: 64px;
+    }
+    .details-innertext {
+        float: left;
+        width: calc(100% - 99px);
+    }
+    .risk_band {
+        width: 8px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background: transparent;
+        left: 0;
+        z-index: 4;
+        &.high {
+            background: #cd202c;
+        }
+        &.medium {
+            background: #eeaf00;
+        }
+    }
+}

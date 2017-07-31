@@ -1,0 +1,38 @@
+.search-box {
+    position: relative;
+    .icon-search {
+        position: absolute;
+        left: 25px;
+        top: 7px;
+        font-size: 20px;
+        z-index: 99;
+    }
+    .form-control {
+        @include border-radius(0);
+        padding-left: 40px;
+    }
+    .title-section {
+        float: left;
+        span,
+        label {
+            color: #333 !important;
+        }
+        width: calc(100% - 30px);
+    }
+    .caret {
+        display: none;
+    }
+    .ui-select-choices-row {
+        float: left;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+    .ui-select-choices-row-inner {
+        &,
+        a {
+            float: left;
+            width: 100%;
+            display: block;
+        }
+    }
+}

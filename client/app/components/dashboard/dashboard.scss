@@ -4,22 +4,36 @@
     text-overflow: ellipsis;
 }
 
+.dashboard {
+    margin: 15px 0;
+}
+
 .patient-lists {
     @include full-width;
-    margin-top: 30px;
     background: #fff;
+    @include box-shadow( 0 0 10px rgba(0, 0, 0, 0.4));
+    .first-row {
+        padding: 15px 0;
+        @include full-width;
+    }
+    .second-row {
+        @include full-width;
+    }
     .row-item {
         @include full-width;
         padding: 15px;
         border-bottom: 1px solid #d2d2d2;
         .patient-icon {
-            width: 60px;
             float: left;
-            padding-top: 4px;
+            width: 120px;
+            padding-right: 15px;
+        }
+        .patient-info {
+            float: left;
+            width: calc(100% - 120px);
         }
         label,
         span {
-            display: block;
             padding: 0;
             margin: 0;
             color: #666;
@@ -27,26 +41,15 @@
             line-height: 100%;
         }
         .lbl-text {
-            display: table;
             cursor: pointer;
-            vertical-align: middle;
             font-weight: 400;
             letter-spacing: .2px;
             max-width: 100%;
+            float: left;
         }
         .lbl-dark {
             color: #333;
-        }
-        &:first-child {
-            &,
-            .lbl-text {
-                display: block;
-            }
-        }
-        .patient-info {
-            float: left;
-            width: calc(100% - 70px);
-            margin-left: 10px;
+            text-transform: capitalize;
         }
         label {
             display: block;
@@ -58,16 +61,17 @@
             font-weight: 400;
             letter-spacing: .2px;
             max-width: 100%;
+            padding-right: 15px;
             @extend .text-ellipsis;
         }
         .text-normal {
             font-size: 14px;
         }
         .text-medium {
-            font-size: 18px;
+            font-size: 20px;
         }
         .text-small {
-            font-size: 15px;
+            font-size: 16px;
         }
     }
 }

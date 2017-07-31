@@ -8,8 +8,8 @@
                 templateUrl: 'components/header/header.html',
                 link: function(scope, element) {
                     try {
-                        scope.userName = "User1";
-                        scope.projectName = "Drug Analytics";
+                        scope.userName = "Clinician 1";
+                        scope.projectName = "Drug Analysis";
 
                     } catch (e) {
                         console.warn("Error on Header Directive", e.message);

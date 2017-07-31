@@ -1,1 +1,70 @@
-<h1>Patient Details goes here</h1>
+<section>
+    <main-header></main-header>
+    <section class="patient-details-wrapper">
+        <header class="details-header">
+            <span class="risk_band {{patientDetail.risk}}" id="patient-risk-level" data-automation-id="patient-risk-level"></span>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="avatar-icon thump-icon">
+                        <img ng-src="{{patientDetail.photo}}" class="img-circle" alt="{{patientDetail.name}} " />
+                    </div>
+                    <div class="details-innertext">
+                        <div class="title-row ng-cloak">
+                            <label class="label-large">
+                        <span class="ng-cloak" id="patient_name" data-automation-id="patient_name" ng-bind="patientDetail.name"> 
+                        </span>
+                    </label>
+                            <label class="label-large pull-right contact-no" id="patient_contact_no" data-automation-id="patient_contact_no">
+                        <span class="ng-cloak" ng-bind="patientDetail.phone"> </span></label>
+
+                        </div>
+                        <div class="details-content">
+                            <div class="col col-1">
+                                <div class="rows">
+                                    <label>ID:</label>
+                                    <span class="ng-cloak" id="patient_id" data-automation-id="patient_id" ng-bind="patientDetail.id">
+                                </span>
+                                </div>
+                                <div class="rows">
+                                    <label>Gender: </label>
+                                    <span class="ng-cloak gender" id="patient_gender" data-automation-id="patient_gender" ng-bind="patientDetail.gender">
+                                                                   </span>
+                                    <label>Age: </label>
+                                    <span class="ng-cloak" id="patient_dob" data-automation-id="patient_dob">
+                                    <i ng-if="patientDetail.age" ng-bind="patientDetail.age"></i>
+                                </span>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label>DOB</label>
+                                <span class="ng-cloak" id="birthday" data-automation-id="birthday" ng-bind="patientDetail.birthday.dmy"></span>
+                            </div>
+                            <div class="col">
+                                <label>Email</label>
+                                <span class="ng-cloak" id="email" data-automation-id="email" ng-bind="patientDetail.email"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    </section>
+    <div class="">
+        <ul class="nav nav-tabs" id="tab-links" role="tablist">
+            <li class="active"><a data-toggle="tab" href="#medications">Medications</a></li>
+            <li><a data-toggle="tab" href="#add_medication">Add Medication</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="medications" class="tab-pane fade in active">
+                <medications></medications>
+            </div>
+            <div id="add_medication" class="tab-pane fade">
+                <add-medication></add-medication>
+            </div>
+
+        </div>
+
+    </div>
+</section>

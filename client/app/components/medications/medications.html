@@ -1,0 +1,24 @@
+<section class="medications">
+    <div class="col-md-12 col-sm-12">
+        <table class="table table-bordered" ng-if="medications.length">
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in medications track by $index">
+                    <td>{{item.medication}}</td>
+                    <td>{{item.startDate}}</td>
+                    <td>{{item.endDate}}</td>
+                    <td>In Progress</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="no-data" ng-if="!medications.length">No Record found.</div>
+    </div>
+</section>
