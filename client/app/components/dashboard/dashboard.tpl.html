@@ -4,6 +4,7 @@
         <div class="patient-lists animated fadeIn">
 
             <a class="row-item " ui-sref="details({id:patient.id})" ng-repeat="patient in patientList | orderBy:'id'">
+                <span class="risk_band {{patient.risk}}"></span>
                 <div class=" patient-icon">
                     <img ng-src="{{patient.photo}}" class="img-circle " alt="{{patient.name}} " />
                 </div>
