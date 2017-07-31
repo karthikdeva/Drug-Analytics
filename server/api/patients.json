@@ -1,0 +1,486 @@
+[{
+        "name": "Chirag",
+        "surname": "Khan",
+        "gender": "male",
+        "region": "India",
+        "age": 40,
+        "title": "mr",
+        "phone": "(916) 172 3265",
+        "birthday": {
+            "dmy": "17/05/1977",
+            "mdy": "05/17/1977",
+            "raw": 548266375
+        },
+        "email": "chirag-khan@example.com",
+        "password": "Khan87@@",
+        "credit_card": {
+            "expiration": "6/23",
+            "number": "1004-1036-9880-4522",
+            "pin": 7558,
+            "security": 174
+        },
+        "photo": "https://uinames.com/api/photos/male/31.jpg",
+        "id": 1
+    },
+    {
+        "name": "Shreya",
+        "surname": "Rodrigues",
+        "gender": "female",
+        "region": "India",
+        "age": 48,
+        "title": "mrs",
+        "phone": "(424) 968 2019",
+        "birthday": {
+            "dmy": "04/12/1969",
+            "mdy": "12/04/1969",
+            "raw": 628755471
+        },
+        "email": "shreya_89@example.com",
+        "password": "Rodrigues89#*",
+        "credit_card": {
+            "expiration": "6/22",
+            "number": "2452-6306-9551-9029",
+            "pin": 6094,
+            "security": 104
+        },
+        "photo": "https://uinames.com/api/photos/female/2.jpg",
+        "id": 2
+    },
+    {
+        "name": "Arnav",
+        "surname": "Banerjee",
+        "gender": "male",
+        "region": "India",
+        "age": 49,
+        "title": "mr",
+        "phone": "(814) 814 8501",
+        "birthday": {
+            "dmy": "24/07/1968",
+            "mdy": "07/24/1968",
+            "raw": 585793233
+        },
+        "email": "arnav-88@example.com",
+        "password": "Banerjee88}~",
+        "credit_card": {
+            "expiration": "4/21",
+            "number": "8917-6092-9233-5580",
+            "pin": 1133,
+            "security": 332
+        },
+        "photo": "https://uinames.com/api/photos/male/17.jpg",
+        "id": 3
+    },
+    {
+        "name": "Surabhi",
+        "surname": "Jaiteley",
+        "gender": "female",
+        "region": "India",
+        "age": 47,
+        "title": "mrs",
+        "phone": "(817) 853 6435",
+        "birthday": {
+            "dmy": "17/01/1970",
+            "mdy": "01/17/1970",
+            "raw": 632628857
+        },
+        "email": "surabhi_90@example.com",
+        "password": "Jaiteley90!",
+        "credit_card": {
+            "expiration": "9/21",
+            "number": "7474-5982-2345-9639",
+            "pin": 3404,
+            "security": 950
+        },
+        "photo": "https://uinames.com/api/photos/female/7.jpg",
+        "id": 4
+    },
+    {
+        "name": "Diya",
+        "surname": "Banerjee",
+        "gender": "female",
+        "region": "India",
+        "age": 56,
+        "title": "ms",
+        "phone": "(797) 996 3321",
+        "birthday": {
+            "dmy": "08/08/1961",
+            "mdy": "08/08/1961",
+            "raw": 366111638
+        },
+        "email": "diya-81@example.com",
+        "password": "Banerjee81~+",
+        "credit_card": {
+            "expiration": "7/20",
+            "number": "8602-5114-3350-7273",
+            "pin": 6604,
+            "security": 166
+        },
+        "photo": "https://uinames.com/api/photos/female/30.jpg",
+        "id": 5
+    },
+    {
+        "name": "Aadhya",
+        "surname": "Rodrigues",
+        "gender": "female",
+        "region": "India",
+        "age": 55,
+        "title": "ms",
+        "phone": "(992) 366 4990",
+        "birthday": {
+            "dmy": "27/09/1962",
+            "mdy": "09/27/1962",
+            "raw": 717592360
+        },
+        "email": "aadhya92@example.com",
+        "password": "Rodrigues92$!",
+        "credit_card": {
+            "expiration": "3/25",
+            "number": "2114-8818-2411-9102",
+            "pin": 6735,
+            "security": 656
+        },
+        "photo": "https://uinames.com/api/photos/female/4.jpg",
+        "id": 6
+    },
+    {
+        "name": "Navya",
+        "surname": "Dutta",
+        "gender": "female",
+        "region": "India",
+        "age": 43,
+        "title": "ms",
+        "phone": "(377) 337 1968",
+        "birthday": {
+            "dmy": "17/04/1974",
+            "mdy": "04/17/1974",
+            "raw": 766596849
+        },
+        "email": "navya_dutta@example.com",
+        "password": "Dutta94})",
+        "credit_card": {
+            "expiration": "9/19",
+            "number": "6407-2630-8140-5950",
+            "pin": 8711,
+            "security": 495
+        },
+        "photo": "https://uinames.com/api/photos/female/25.jpg",
+        "id": 7
+    },
+
+    {
+        "name": "Arnav",
+        "surname": "Rangarajan",
+        "gender": "male",
+        "region": "India",
+        "age": 43,
+        "title": "mr",
+        "phone": "(212) 659 6179",
+        "birthday": {
+            "dmy": "26/12/1974",
+            "mdy": "12/26/1974",
+            "raw": 472928019
+        },
+        "email": "arnav-84@example.com",
+        "password": "Rangarajan84#^",
+        "credit_card": {
+            "expiration": "11/20",
+            "number": "7373-4737-4667-5918",
+            "pin": 1113,
+            "security": 423
+        },
+        "photo": "https://uinames.com/api/photos/male/13.jpg",
+        "id": 9
+    },
+    {
+        "name": "Trisha",
+        "surname": "Malhotra",
+        "gender": "female",
+        "region": "India",
+        "age": 33,
+        "title": "ms",
+        "phone": "(815) 813 2624",
+        "birthday": {
+            "dmy": "14/04/1984",
+            "mdy": "04/14/1984",
+            "raw": 450786333
+        },
+        "email": "trisha_84@example.com",
+        "password": "Malhotra84*_",
+        "credit_card": {
+            "expiration": "12/19",
+            "number": "4153-7122-2412-6845",
+            "pin": 2693,
+            "security": 467
+        },
+        "photo": "https://uinames.com/api/photos/female/9.jpg",
+        "id": 10
+    },
+    {
+        "name": "Vivaan",
+        "surname": "Patil",
+        "gender": "male",
+        "region": "India",
+        "age": 32,
+        "title": "mr",
+        "phone": "(676) 688 1135",
+        "birthday": {
+            "dmy": "27/08/1985",
+            "mdy": "08/27/1985",
+            "raw": 494036199
+        },
+        "email": "vivaan-patil@example.com",
+        "password": "Patil85__",
+        "credit_card": {
+            "expiration": "1/24",
+            "number": "5169-8505-3272-9190",
+            "pin": 9807,
+            "security": 753
+        },
+        "photo": "https://uinames.com/api/photos/male/17.jpg",
+        "id": 11
+    },
+    {
+        "name": "Paridhi",
+        "surname": "Gavde",
+        "gender": "female",
+        "region": "India",
+        "age": 34,
+        "title": "ms",
+        "phone": "(223) 548 3130",
+        "birthday": {
+            "dmy": "09/12/1983",
+            "mdy": "12/09/1983",
+            "raw": 439839020
+        },
+        "email": "paridhi83@example.com",
+        "password": "Gavde83=^",
+        "credit_card": {
+            "expiration": "7/24",
+            "number": "7963-7513-3334-7228",
+            "pin": 5353,
+            "security": 187
+        },
+        "photo": "https://uinames.com/api/photos/female/25.jpg",
+        "id": 12
+    },
+    {
+        "name": "Arjun",
+        "surname": "Saxena",
+        "gender": "male",
+        "region": "India",
+        "age": 44,
+        "title": "mr",
+        "phone": "(813) 366 4723",
+        "birthday": {
+            "dmy": "26/03/1973",
+            "mdy": "03/26/1973",
+            "raw": 733142477
+        },
+        "email": "arjun_saxena@example.com",
+        "password": "Saxena93{}",
+        "credit_card": {
+            "expiration": "1/24",
+            "number": "9778-5321-6654-9265",
+            "pin": 6840,
+            "security": 497
+        },
+        "photo": "https://uinames.com/api/photos/male/11.jpg",
+        "id": 13
+    },
+    {
+        "name": "Arjun",
+        "surname": "Balasubramanium",
+        "gender": "male",
+        "region": "India",
+        "age": 34,
+        "title": "mr",
+        "phone": "(421) 434 7678",
+        "birthday": {
+            "dmy": "03/03/1983",
+            "mdy": "03/03/1983",
+            "raw": 415567010
+        },
+        "email": "arjun83@example.com",
+        "password": "Balasubramanium83){",
+        "credit_card": {
+            "expiration": "8/19",
+            "number": "1564-5713-2287-7281",
+            "pin": 6655,
+            "security": 281
+        },
+        "photo": "https://uinames.com/api/photos/male/36.jpg",
+        "id": 14
+    },
+    {
+        "name": "Rakesh",
+        "surname": "Mukopadhyay",
+        "gender": "male",
+        "region": "India",
+        "age": 31,
+        "title": "mr",
+        "phone": "(460) 916 4464",
+        "birthday": {
+            "dmy": "17/06/1986",
+            "mdy": "06/17/1986",
+            "raw": 519395399
+        },
+        "email": "rakesh-86@example.com",
+        "password": "Mukopadhyay86}",
+        "credit_card": {
+            "expiration": "12/20",
+            "number": "3956-6826-4150-9628",
+            "pin": 5278,
+            "security": 202
+        },
+        "photo": "https://uinames.com/api/photos/male/27.jpg",
+        "id": 15
+    },
+    {
+        "name": "Trishla",
+        "surname": "Gavde",
+        "gender": "female",
+        "region": "India",
+        "age": 35,
+        "title": "mrs",
+        "phone": "(815) 943 6998",
+        "birthday": {
+            "dmy": "20/03/1982",
+            "mdy": "03/20/1982",
+            "raw": 385477675
+        },
+        "email": "trishla82@example.com",
+        "password": "Gavde82#=",
+        "credit_card": {
+            "expiration": "11/20",
+            "number": "2497-5786-5700-7009",
+            "pin": 7515,
+            "security": 526
+        },
+        "photo": "https://uinames.com/api/photos/female/11.jpg",
+        "id": 16
+    },
+    {
+        "name": "Vibhore",
+        "surname": "Nair",
+        "gender": "male",
+        "region": "India",
+        "age": 43,
+        "title": "mr",
+        "phone": "(657) 898 6738",
+        "birthday": {
+            "dmy": "19/12/1974",
+            "mdy": "12/19/1974",
+            "raw": 787899462
+        },
+        "email": "vibhore.nair@example.com",
+        "password": "Nair94~_",
+        "credit_card": {
+            "expiration": "6/23",
+            "number": "4634-6732-8620-9232",
+            "pin": 9878,
+            "security": 352
+        },
+        "photo": "https://uinames.com/api/photos/male/31.jpg",
+        "id": 17
+    },
+
+    {
+        "name": "Navya",
+        "surname": "Jhadav",
+        "gender": "female",
+        "region": "India",
+        "age": 49,
+        "title": "ms",
+        "phone": "(353) 353 7964",
+        "birthday": {
+            "dmy": "04/06/1968",
+            "mdy": "06/04/1968",
+            "raw": 581475507
+        },
+        "email": "navya-jhadav@example.com",
+        "password": "Jhadav88&}",
+        "credit_card": {
+            "expiration": "8/24",
+            "number": "1933-1848-7248-9906",
+            "pin": 4439,
+            "security": 544
+        },
+        "photo": "https://uinames.com/api/photos/female/27.jpg",
+        "id": 19
+    },
+    {
+        "name": "Hemant",
+        "surname": "Chauhan",
+        "gender": "male",
+        "region": "India",
+        "age": 50,
+        "title": "mr",
+        "phone": "(845) 948 3221",
+        "birthday": {
+            "dmy": "16/08/1967",
+            "mdy": "08/16/1967",
+            "raw": 556141407
+        },
+        "email": "hemant-87@example.com",
+        "password": "Chauhan87@#",
+        "credit_card": {
+            "expiration": "1/20",
+            "number": "9993-1226-9281-3918",
+            "pin": 6448,
+            "security": 818
+        },
+        "photo": "https://uinames.com/api/photos/male/35.jpg",
+        "id": 20
+    },
+    {
+        "name": "Aaryan",
+        "surname": "Das",
+        "gender": "male",
+        "region": "India",
+        "age": 52,
+        "title": "mr",
+        "phone": "(487) 455 3093",
+        "birthday": {
+            "dmy": "05/02/1965",
+            "mdy": "02/05/1965",
+            "raw": 792011667
+        },
+        "email": "aaryandas@example.com",
+        "password": "Das95&{",
+        "credit_card": {
+            "expiration": "6/21",
+            "number": "7726-4090-5789-3133",
+            "pin": 1626,
+            "security": 822
+        },
+        "photo": "https://uinames.com/api/photos/male/42.jpg",
+        "id": 21
+    },
+
+
+    {
+        "name": "Muhammad",
+        "surname": "Dutta",
+        "gender": "male",
+        "region": "India",
+        "age": 34,
+        "title": "mr",
+        "phone": "(968) 359 7833",
+        "birthday": {
+            "dmy": "10/09/1983",
+            "mdy": "09/10/1983",
+            "raw": 432070894
+        },
+        "email": "muhammad_83@example.com",
+        "password": "Dutta83#)",
+        "credit_card": {
+            "expiration": "11/19",
+            "number": "3509-1212-8995-7331",
+            "pin": 5300,
+            "security": 108
+        },
+        "photo": "https://uinames.com/api/photos/male/25.jpg",
+        "id": 24
+    }
+
+]

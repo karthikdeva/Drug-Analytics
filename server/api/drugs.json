@@ -1,0 +1,29 @@
+ [{
+         "name": "Aspirin",
+         "normId": "1191"
+     },
+     {
+         "name": "Arixtra",
+         "normId": "321208"
+     },
+     {
+         "name": "Aspir-Low",
+         "normId": "1191"
+     },
+     {
+         "name": "Anacin",
+         "normId": "1191"
+     },
+     {
+         "name": "Arixtra",
+         "normId": "321208"
+     },
+     {
+         "name": "Coumadin",
+         "normId": "321208"
+     },
+     {
+         "name": "Viactiv Calcium Plus D",
+         "normId": "11258"
+     }
+ ]
