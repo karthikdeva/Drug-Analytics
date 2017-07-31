@@ -346,9 +346,23 @@
                     scope.saveMedication = function() {
                         if (scope.selectedDrug.hasOwnProperty("normId")) {
                             scope.init.warning = "";
-                            if (scope.selectedDrug.normId == 321208) {
+                            var activeMedication = allService.getCachedMedicationsByPatientId($stateParams.id);
+                            var hasAsprin = false;
+                            if (activeMedication) {
+                                activeMedication.filter(function(item) {
+                                    hasAsprin = item.normId == 1196 ? true : false;
+                                    return hasAsprin;
+                                })
+                            }
+                            console.log("activeMedication", activeMedication.length);
+                            if (activeMedication.length && scope.selectedDrug.normId == 321208) {
                                 var name = scope.selectedPatient[0] ? scope.selectedPatient[0].name : "He/She";
-                                scope.init.warning = "<b>'" + name + "'</b> may affect the serious drug side affects with combination of current drug <b> '" + scope.selectedDrug.name + "'</b> with following medication";
+                                scope.init.warning = "<b>'" + name + "'</b> may affect the serious drug side affects with combination of current drug <b>'" + scope.selectedDrug.name + "'</b> with following medication";
+                                scope.init.risk = "High";
+                                $("#myModal").modal("show");
+                            } else if (hasAsprin) {
+                                var name = scope.selectedPatient[0] ? scope.selectedPatient[0].name : "He/She";
+                                scope.init.warning = "You are prescribing <b>'" + scope.selectedDrug.name + "'</b> Asprin medication.<b> '" + name + "'</b> is already on Asprin medication. Please review the Medication";
                                 scope.init.risk = "High";
                                 $("#myModal").modal("show");
                             } else {
