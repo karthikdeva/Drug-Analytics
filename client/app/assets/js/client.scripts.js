@@ -53,66 +53,25 @@
 })();
 (function() {
     'use strict';
-    angular.module('dashboardModule', ['commonUtilService', 'dashboardDirective', 'patientListService']);
+    angular.module('headerModule', ['header']);
 })();
 (function() {
     'use strict';
-    angular.module('dashboardModule', ['patientListService']).directive("dashboard", ['$stateParams', 'patientListService', function($stateParams, patientListService) {
-        return {
-            replace: true,
-            restrict: 'AE',
-            templateUrl: 'components/dashboard/dashboard.tpl.html',
-            link: function(scope, element) {
-                try {
-                    var promise = patientListService.getPatients();
-                    promise.then(function(res) {
-                        scope.patientList = res.data;
-                    }, function(error) {
-                        console.log(error);
-                    });
-                    scope.number = 7;
-                    scope.getNumber = function(num) {
-                        return new Array(num);
-                    }
-
-                } catch (e) {
-                    console.warn("Error ", e.message);
-                }
-            }
-        }
-    }]);
-})();
-(function() {
-    "use strict";
-    angular.module('patientListService', [])
-        .service('patientListService', ['$q', '$http', 'commonUtilService', function($q, $http, commonUtilService) {
-            var patients = [];
+    angular.module('header', [])
+        .directive('mainHeader', [function() {
             return {
+                replace: true,
+                restrict: 'AE',
+                templateUrl: 'components/header/header.html',
+                link: function(scope, element) {
+                    try {
+                        scope.userName = "Clinician 1";
+                        scope.projectName = "Drug Analysis";
 
-                getPatients: function() {
-                    var deferred = $q.defer();
-                    var apiUrl = commonUtilService.apiUrl + "patients";
-                    $http.get(apiUrl).then(function(data) {
-                        deferred.resolve(data);
-                        patients = data.data;
-                    }, function myError(response) {
-                        deferred.reject(response);
-                    });
-
-                    return deferred.promise;
-                },
-                // setPatients: function(patientList) {
-                //     this.patients = patientList;
-                // },
-                getSelectedPatient: function(patientId) {
-                    console.log(patients);
-                    console.log(patientId);
-                    var selectedPatient = patients.filter(function(item) {
-                        return item.id == patientId;
-                    });
-                    return selectedPatient;
+                    } catch (e) {
+                        console.warn("Error on Header Directive", e.message);
+                    }
                 }
-
             };
         }]);
 })();
@@ -273,6 +232,67 @@
 })();
 (function() {
     'use strict';
+    angular.module('dashboardModule', ['commonUtilService', 'dashboardDirective', 'patientListService']);
+})();
+(function() {
+    'use strict';
+    angular.module('dashboardModule', ['patientListService']).directive("dashboard", ['$stateParams', 'patientListService', function($stateParams, patientListService) {
+        return {
+            replace: true,
+            restrict: 'AE',
+            templateUrl: 'components/dashboard/dashboard.tpl.html',
+            link: function(scope, element) {
+                try {
+                    var promise = patientListService.getPatients();
+                    promise.then(function(res) {
+                        scope.patientList = res.data;
+                    }, function(error) {
+                        console.log(error);
+                    });
+                    scope.number = 7;
+                    scope.getNumber = function(num) {
+                        return new Array(num);
+                    }
+
+                } catch (e) {
+                    console.warn("Error ", e.message);
+                }
+            }
+        }
+    }]);
+})();
+(function() {
+    "use strict";
+    angular.module('patientListService', [])
+        .service('patientListService', ['$q', '$http', 'commonUtilService', function($q, $http, commonUtilService) {
+            var patients = [];
+            return {
+
+                getPatients: function() {
+                    var deferred = $q.defer();
+                    var apiUrl = commonUtilService.apiUrl + "patients";
+                    $http.get(apiUrl).then(function(data) {
+                        deferred.resolve(data);
+                        patients = data.data;
+                    }, function myError(response) {
+                        deferred.reject(response);
+                    });
+
+                    return deferred.promise;
+                },
+
+                getSelectedPatient: function(patientId) {
+                    var selectedPatient = patients.filter(function(item) {
+                        return item.id == patientId;
+                    });
+                    return selectedPatient;
+                }
+
+            };
+        }]);
+})();
+(function() {
+    'use strict';
     angular.module('addMedicationModule', ['addMedication']);
 
 })();
@@ -286,6 +306,8 @@
             link: function(scope, element) {
                 try {
                     scope.init = {
+                        startDate: "2017-08-01",
+                        endDate: "2017-09-01",
                         dosage: ["10mg", "15mg", "20mg", "25mg", "30mg"]
                     };
 
@@ -313,43 +335,49 @@
                             console.log(error);
                         });
                     }
+                    var p = patientListService.getPatients();
+                    p.then(function(res) {
+                        scope.selectedPatient = patientListService.getSelectedPatient($stateParams.id);
+                    }, function(error) {
+                        console.log(error);
+                    });
+
+
                     scope.saveMedication = function() {
                         if (scope.selectedDrug.hasOwnProperty("normId")) {
-                            var medicaton = {
-                                id: $stateParams.id,
-                                medication: scope.selectedDrug.name,
-                                startDate: scope.init.startDate || null,
-                                endDate: scope.init.startDate || null,
-                                drugId: scope.selectedDrug.normId
-                            }
                             scope.init.warning = "";
-
-                            //  var promise1 = allService.getMedicationBypatientId($stateParams.id)
                             if (scope.selectedDrug.normId == 321208) {
-
-                                scope.init.warning = "It increases chance of internal bleeding or, if patient get a cut on his finger, the blood won't clot as quickly.";
+                                var name = scope.selectedPatient[0] ? scope.selectedPatient[0].name : "He/She";
+                                scope.init.warning = "<b>'" + name + "'</b> may affect the serious drug side affects with combination of current drug <b> '" + scope.selectedDrug.name + "'</b> with following medication";
                                 scope.init.risk = "High";
                                 $("#myModal").modal("show");
-                            } else {
-                                var promise = allService.saveMedication(medicaton);
+                            } else if (scope.selectedDrug.normId == 321208) {
 
-                                promise.then(function(res) {
-                                    var result = res.data.results[0];
-                                    console.log("saveMedication", res);
-                                    $timeout(function() {
-                                        scope.init.message = result;
-                                    }, 0);
-                                    $timeout(function() {
-                                        scope.init.message = "";
-                                    }, 2000);
-                                    $(".form-control").val("");
-                                }, function(error) {
-                                    console.log(error);
-                                });
                             }
                         }
                     }
+                    scope.confirmSave = function() {
+                        var medicaton = {
+                            id: $stateParams.id,
+                            medication: scope.selectedDrug.name,
+                            startDate: scope.init.startDate || null,
+                            endDate: scope.init.endDate || null,
+                            drugId: scope.selectedDrug.normId
+                        }
+                        var promise = allService.saveMedication(medicaton);
+                        scope.init.message = "";
+                        promise.then(function(res) {
+                            $timeout(function() {
+                                scope.init.message = "Saved Successfully";
+                            }, 0);
+                            $timeout(function() {
+                                scope.init.message = "";
+                            }, 2000);
 
+                        }, function(error) {
+                            console.log(error);
+                        });
+                    }
 
                 } catch (e) {
                     console.warn("Error ", e.message);
@@ -357,29 +385,5 @@
             }
         }
     }]);
-})();
-(function() {
-    'use strict';
-    angular.module('headerModule', ['header']);
-})();
-(function() {
-    'use strict';
-    angular.module('header', [])
-        .directive('mainHeader', [function() {
-            return {
-                replace: true,
-                restrict: 'AE',
-                templateUrl: 'components/header/header.html',
-                link: function(scope, element) {
-                    try {
-                        scope.userName = "Clinician 1";
-                        scope.projectName = "Drug Analysis";
-
-                    } catch (e) {
-                        console.warn("Error on Header Directive", e.message);
-                    }
-                }
-            };
-        }]);
 })();
 })(window, document);

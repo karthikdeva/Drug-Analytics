@@ -17,12 +17,8 @@
 
                     return deferred.promise;
                 },
-                // setPatients: function(patientList) {
-                //     this.patients = patientList;
-                // },
+
                 getSelectedPatient: function(patientId) {
-                    console.log(patients);
-                    console.log(patientId);
                     var selectedPatient = patients.filter(function(item) {
                         return item.id == patientId;
                     });
