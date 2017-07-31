@@ -19,12 +19,10 @@ function getMedications(settings,callback){
         medications = JSON.parse(content).filter(function(medication){
             if(medication.patientId == settings.patientId){
                 if(settings.startDate && settings.endDate){
-                    var medDatetime = new Date(medication.endDate).getTime();
-                    if(medDatetime >= new Date(settings.startDate).getTime() && medDateTime <=  new Date(settings.endDate).getTime()){
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    var medDateTime = new Date(medication.endDate).getTime();
+                    var startTime = new Date(settings.startDate).getTime();
+                    var endTime = new Date(settings.endDate).getTime();
+                    return (medDateTime >= startTime || (medDateTime >= startTime && medDateTime <=  endTime));
                 }
                 return true;
             }
@@ -48,25 +46,32 @@ function writeMedications(data,callback){
 function checkAdverseEffects(drugId, medications,callback){
     var adverse;
     var results = [];
-    fs.readFile('./server/api/adverse.json', function(err, content) {
-        if (err) throw err;
-        adverse = JSON.parse(content);
+    if(medications && medications.length){
         for(var i=0;i<medications.length;i++){
-            var ads = adverse(medications[i]);
-            if(ads.normId == drugId){
-                results.push(ads.message);
+            var ads = adverseEffects[medications[i].normId];
+            if(ads && ads.length){
+                for(var k=0;k<ads.length;k++){
+                    if(ads[k].normId == drugId){
+                        results.push(ads[k].message);
+                    }
+                }
             }
         }
-        callback(results);
-    });
+    }
+    if(!results.length){
+        results.push("Medication is added successfully!!");
+    }
+    callback(results);
 }
-app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
-})
-
+});
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 api.get('/', (req, res) => {
     res.send('Welcome to Drug Analytics API page');
 })
@@ -107,15 +112,13 @@ api.post('/savemedication', function(req, res){
     
     res.setHeader('Content-Type', 'application/json');
     var medications = getMedications({"patientId":req.body.id,"startDate":req.body.startDate,"endDate":req.body.endDate},function(content){
-        return content;
-    }); 
-    checkAdverseEffects(req.body.drugId,medications,function(result){
+        checkAdverseEffects(req.body.drugId,content,function(result){
          res.send(JSON.stringify({
             results: result || null
         }));
+    }); 
+    
     })
-    //debugging output for the terminal
-    console.log('you posted: First Name: ' + req.body.firstName + ', Last Name: ' + req.body.lastName);
 });
 
 api.get("/register", (req, res) => {

@@ -1,7 +1,7 @@
 [{
     "patientId":1,
-    "medication":"Coumadin",
-    "normId":321208,
+    "medication":"Aspirin",
+    "normId":1191,
     "startDate":"2016-04-12",
     "endDate":"2016-05-16"
 },
