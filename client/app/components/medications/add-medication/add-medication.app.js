@@ -1,5 +1,5 @@
 (function() {
     'use strict';
-    angular.module('addMedicationModule', ['addMedication']);
+    angular.module('addMedicationModule', ['addMedication','medicationTree']);
 
 })();

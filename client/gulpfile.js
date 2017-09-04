@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var del = require("del");
 var sass = require('gulp-sass');
+var zip = require('gulp-zip');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
@@ -116,8 +117,14 @@ gulp.task('injectAssets', function() {
 });
 
 
+/* Generate static resource file */
+gulp.task('generateResourceBundle', function() {
+    return gulp.src(config.build.src)
+        .pipe(zip("drug_analysis.resource"))
+        .pipe(gulp.dest("build/"))
+});
 gulp.task('allTasks', function(callback) {
-    runSequence(['clean'], ['css', 'vendorJs', 'scripts'], ['injectAssets', 'serve'], callback);
+    runSequence(['clean'], ['css', 'vendorJs', 'scripts'], ['injectAssets', 'serve', 'generateResourceBundle'], callback);
 });
 
 gulp.task('build:dev', function(callback) {
@@ -126,5 +133,6 @@ gulp.task('build:dev', function(callback) {
 gulp.task('build:serve', function(callback) {
     runSequence(['allTasks'], callback);
 });
+
 
 gulp.task("default", ['build:dev'], function() {});

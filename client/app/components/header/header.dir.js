@@ -9,7 +9,7 @@
                 link: function(scope, element) {
                     try {
                         scope.userName = "Clinician 1";
-                        scope.projectName = "Drug Analysis";
+                        scope.projectName = "Adverse Reactions Tracker (and Preventer)";
 
                     } catch (e) {
                         console.warn("Error on Header Directive", e.message);

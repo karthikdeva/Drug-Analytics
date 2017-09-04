@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "Chirag",
         "surname": "Khan",
         "gender": "male",
@@ -20,6 +19,7 @@
             "pin": 7558,
             "security": 174
         },
+        "risk": "high",
         "photo": "https://uinames.com/api/photos/male/31.jpg",
         "id": 1
     },
@@ -78,6 +78,7 @@
         "region": "India",
         "age": 27,
         "title": "mrs",
+        "risk": "medium",
         "phone": "(817) 853 6435",
         "birthday": {
             "dmy": "17/01/1990",
@@ -95,36 +96,14 @@
         "photo": "https://uinames.com/api/photos/female/7.jpg",
         "id": 4
     },
-    {
-        "name": "Diya",
-        "surname": "Banerjee",
-        "gender": "female",
-        "region": "India",
-        "age": 36,
-        "title": "ms",
-        "phone": "(797) 996 3321",
-        "birthday": {
-            "dmy": "08/08/1981",
-            "mdy": "08/08/1981",
-            "raw": 366111638
-        },
-        "email": "diya-81@example.com",
-        "password": "Banerjee81~+",
-        "credit_card": {
-            "expiration": "7/20",
-            "number": "8602-5114-3350-7273",
-            "pin": 6604,
-            "security": 166
-        },
-        "photo": "https://uinames.com/api/photos/female/30.jpg",
-        "id": 5
-    },
+  
     {
         "name": "Aadhya",
         "surname": "Rodrigues",
         "gender": "female",
         "region": "India",
         "age": 25,
+        "risk": "high",
         "title": "ms",
         "phone": "(992) 366 4990",
         "birthday": {

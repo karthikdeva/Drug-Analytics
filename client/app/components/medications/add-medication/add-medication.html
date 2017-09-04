@@ -1,5 +1,4 @@
 <section class="add-medication col-md-12 col-sm-12">
-
     <form class="form-horizontal container">
         <div class="form-group">
             <div class="col-sm-2">
@@ -15,11 +14,8 @@
                         </div>
                     </ui-select-choices>
                 </ui-select>
-                <!-- <div class="warning" ng-if="init.warning">
-                    <i class="fa fa-warning"></i> {{init.warning}} </div> -->
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-sm-2">
                 <label for="Dosage">Dosage</label>
@@ -34,23 +30,45 @@
                     </ui-select-choices>
                 </ui-select>
             </div>
-
-
         </div>
         <div class="form-group">
             <div class="col-sm-2">
-                <label for="Start">Start Date:</label>
+                <label for="Start">Problems:</label>
             </div>
             <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="YYYY-DD-MM" ng-model="init.startDate">
+                <input type="text" class="form-control" placeholder="ex:Dizziness" ng-model="init.problem">
             </div>
         </div>
-        <div class="form-group">
+        <div class="dropdown form-group dropdown-start-parent">
             <div class="col-sm-2">
-                <label for="End">End Date:</label>
+                <label>Start Date</label>
             </div>
             <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="YYYY-DD-MM" ng-model="init.endDate">
+                <a class="dropdown-toggle" id="dropdownStart" role="button" data-toggle="dropdown" data-target=".dropdown-start-parent">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" data-ng-model="init.startDate" ui-date-format="DD/MM/YYYY">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="init.startDate" data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' ,startView: 'day', minView: 'day'}" data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown form-group dropdown-end-parent">
+            <div class="col-sm-2">
+                <label>End Date</label>
+            </div>
+            <div class="col-sm-10">
+                <a class="dropdown-toggle" id="dropdownEnd" role="button" data-toggle="dropdown" data-target=".dropdown-end-parent">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" data-ng-model="init.endDate" ui-date-format="DD/MM/YYYY">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="init.endDate" data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed',startView: 'day', minView: 'day' }" data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                </ul>
             </div>
         </div>
         <button class="btn btn-primary pull-right" ng-click="saveMedication()">Add</button>
@@ -60,6 +78,8 @@
             </div>
         </div>
     </form>
+
+
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -67,9 +87,11 @@
                     <i class="fa fa-close pull-right" data-dismiss="modal"></i>
                 </div>
                 <div class="modal-body">
-                    <div class="warning" ng-if="init.warning">
+                <div id="medicationsTree" class="medicationsTree"></div>
+                    <!--     <medication-tree medication-model="model" id="myDiagramDiv" style="border: solid 1px #ddd; width:100%; height:400px"></medication-tree> -->
+                    <!--   <div class="warning" ng-if="init.warning">
                         <i class="fa fa-warning"></i>
-                        <span ng-bind-html="init.warning"> </span> </div>
+                        <span ng-bind-html="init.warning"> </span> </div> -->
                 </div>
                 <div class="modal-header">
                     <div class="pull-right">
