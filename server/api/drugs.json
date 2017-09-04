@@ -34,12 +34,10 @@
   "name":"Ascriptin",
   "normId":1191
 },
-,
 {
   "name":"celecoxib",
   "normId":140587
 },
-,
 {
   "name":"Celebrex",
   "normId":140587
@@ -49,4 +47,23 @@
 	"normId":"202486"
 },
 {
+  "name":"Warfarin",
+  "normId":11289
+},
+{
+  "name":"Coumadin",
+  "normId":11289
+},
+{
+  "name":"Jantoven",
+  "normId":11289
+},
+{
+  "name":"Vitamin K1",
+  "normId":8308
+},
+{
+  "name":"bufferin",
+  "normId":215770
+  
 }]
