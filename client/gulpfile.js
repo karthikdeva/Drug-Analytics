@@ -1,7 +1,7 @@
 var gulp = require("gulp");
 var del = require("del");
 var sass = require('gulp-sass');
-var zip = require('gulp-zip');
+// var zip = require('gulp-zip');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');

@@ -20,9 +20,13 @@ function getMedications(settings,callback){
             if(medication.patientId == settings.patientId){
                 if(settings.startDate && settings.endDate){
                     var medDateTime = new Date(medication.endDate).getTime();
-                    var startTime = new Date(settings.startDate).getTime();
+                    var todaysDate = new Date(settings.startDate);
+                    var numberOfDaysToSubtract = 60;
+                    var startTime = todaysDate.setDate(todaysDate.getDate() - numberOfDaysToSubtract); 
+                    // var startTime = new Date(settings.startDate).getTime();
                     var endTime = new Date(settings.endDate).getTime();
-                    return (medDateTime >= startTime || (medDateTime >= startTime && medDateTime <=  endTime));
+                    return ((medDateTime >= startTime) || 
+                    (medDateTime >= startTime && medDateTime <=  endTime));
                 }
                 return true;
             }
