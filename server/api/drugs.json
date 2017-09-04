@@ -65,5 +65,16 @@
 {
   "name":"bufferin",
   "normId":215770
-  
+},
+{
+  "name":"amoxicillin",
+  "normId":723
+},
+{
+  "name":"Trimox",
+  "normId":723
+},
+{
+  "name":"Vibramycin",
+  "normId":3640
 }]

@@ -55,7 +55,7 @@ function checkAdverseEffects(drugId, medications,callback){
             var ads = adverseEffects[medications[i].normId];
             if(ads && ads.length){
                 for(var k=0;k<ads.length;k++){
-                    if(ads[k].normId == drugId){
+                    if((ads[k].normId == drugId) || ads[k].type == "S" ){
                         results.push(ads[k].message);
                     }
                 }
