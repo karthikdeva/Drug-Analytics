@@ -1,4 +1,3 @@
-
 [{
   "name":"Aspirin",
   "normId":1191
@@ -16,27 +15,38 @@
   "normId":1191
 },
 {
-  "name":"Arixtra",
+  "name":"Lovenox",
   "normId":321208
 },
 {
-  "name":"Warfarin",
-  "normId":11289
-},
-{
   "name":"Coumadin",
-  "normId":11289
+  "normId":321208
 },
 {
-  "name":"Jantoven",
-  "normId":11289
+  "name":"Pradaxa",
+  "normId":321208
 },
 {
-  "name":"Vitamin K1",
-  "normId":8308
+  "name":"Aggrenox",
+  "normId":1191
 },
 {
-  "name":"bufferin",
-  "normId":215770
-  
+  "name":"Ascriptin",
+  "normId":1191
+},
+,
+{
+  "name":"celecoxib",
+  "normId":140587
+},
+,
+{
+  "name":"Celebrex",
+  "normId":140587
+},
+{
+	"name":"Dolobid",
+	"normId":"202486"
+},
+{
 }]
