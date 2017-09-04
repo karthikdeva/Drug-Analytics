@@ -9,6 +9,7 @@
 .add-medication {
     background: #fff;
     @include full-width;
+    position:relative;
     padding-top: 15px;
     min-height: 600px;
 }
@@ -63,4 +64,30 @@
     display: inline-block;
     text-align: left;
     vertical-align: middle;
+    width: 70% !important;
+}
+
+.medicationsTree {
+    @include full-width;
+    height: 500px;
+    padding: 50px;
+    overflow: hidden;
+    &:before {
+        content: "";
+        width: 180px;
+        height: 70px;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+    }
+    canvas{
+        &:focus,&:active{
+             outline:none;
+        }
+    }
+}
+.open .dropdown-menu {
+     display:block !important;
 }

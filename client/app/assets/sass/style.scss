@@ -1,5 +1,5 @@
     /* Bootstrap SASS*/
-    
+
     // Core variables and mixins
     @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
     @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins"; // Reset and dependencies
@@ -36,7 +36,7 @@
     img {
         max-width: 100%;
     }
-    
+
     body,
     html {
         width: 100%;
@@ -45,15 +45,33 @@
         background: #c1c1c1;
         font-weight: normal;
     }
-    
+
     .img-circle {
         padding: 2px;
         border: 1px solid #e5e5e5;
         border-radius: 50%;
     }
-    
+
+    .glyphicon {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .glyphicon-arrow-right:before {
+        content: "\f061";
+    }
+
+    .glyphicon-arrow-left:before {
+        content: "\f060";
+    }
+
+
     @media screen and (max-width: 1023) {}
-    
+
     @media screen and (max-width:767px) {}
-    
+
     @media screen and (max-width:639px) {}

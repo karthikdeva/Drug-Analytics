@@ -4,6 +4,8 @@
             <thead>
                 <tr>
                     <th>Medication</th>
+                    <th>Side Effects</th>
+                    <th>Problem</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Status</th>
@@ -12,6 +14,8 @@
             <tbody>
                 <tr ng-repeat="item in medications track by $index">
                     <td>{{item.medication}}</td>
+                    <td>{{item.symptoms}}</td>
+                    <td>{{item.problem}}</td>
                     <td>{{item.startDate}}</td>
                     <td>{{item.endDate}}</td>
                     <td>In Progress</td>
