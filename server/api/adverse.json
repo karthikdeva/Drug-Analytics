@@ -11,5 +11,13 @@
       "normId":1191,
       "message":"It increases your chance of internal bleeding or, if you get a cut on your finger, the blood won't clot as quickly.",
       "risk":"High"
-    }]
+    }
+    ],
+    "11289":[
+      {
+      "normId":8308,
+      "message":"It increases the risk of blood clot formation",
+      "risk":"High"
+    }
+    ]
 }
